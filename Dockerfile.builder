@@ -23,7 +23,9 @@ RUN chroot /ubuntu-minimal /bin/bash -c "\
     echo 'ubuntu-minimal' > /etc/hostname && \
     echo '127.0.0.1 localhost' > /etc/hosts && \
     apt-get update && \
-    apt-get install -y --no-install-recommends linux-image-generic=6.8.0-31.31 && \
+    apt-get install -y \
+    linux-image-generic=6.8.0-31.31 \
+    systemd=255.4-1ubuntu8 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*"
 
