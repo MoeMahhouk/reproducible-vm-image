@@ -1,0 +1,10 @@
+# Dockerfile.extractor
+
+# Use the previously built image as the base
+FROM ubuntu-minimal-builder AS builder
+
+# Use scratch as the base for the extraction stage
+FROM scratch AS extractor
+
+# Copy the generated qcow2 image from the builder stage
+COPY --from=builder /ubuntu-minimal.qcow2 /ubuntu-minimal.qcow2
